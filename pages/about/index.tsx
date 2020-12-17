@@ -1,7 +1,11 @@
 import Router from "next/router";
 import MainLayout from "../../components/MainLayout";
 
-const About = ({ title }) => {
+interface MyAbout {
+  title: string;
+}
+
+const About = ({ title }: MyAbout) => {
   const clickHandler = () => {
     Router.push("/posts");
   };
@@ -17,7 +21,7 @@ const About = ({ title }) => {
 };
 
 About.getInitialProps = async () => {
-  const response = await fetch("http://localhost:4200/about");
+  const response = await fetch(`${process.env.API_ULR}/about`);
   const data = await response.json();
 
   return {

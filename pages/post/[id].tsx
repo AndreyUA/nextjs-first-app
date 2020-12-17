@@ -3,15 +3,21 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MainLayout from "../../components/MainLayout";
+import { NextPageContext } from "next";
+import { MyPost } from "../../interfaces/post";
 
-const Post = ({ post: serverPost }) => {
+interface PostPageProps {
+  post: MyPost;
+}
+
+const Post = ({ post: serverPost }: PostPageProps) => {
   const router = useRouter();
   const [post, setPost] = useState(serverPost);
 
   useEffect(() => {
     const load = async () => {
       const response = await fetch(
-        `http://localhost:4200/posts/${router.query.id}`
+        `${process.env.API_ULR}/posts/${router.query.id}`
       );
       const data = await response.json();
 
@@ -43,15 +49,23 @@ const Post = ({ post: serverPost }) => {
   );
 };
 
+// расширяем интерфейс через наследование от
+// основного интерфейса
+interface PostNextPageContext extends NextPageContext {
+  query: {
+    id: string;
+  };
+}
+
 // работает на бек-енде и фронт-енде
 //Post.getInitialProps = async (ctx) => {
-Post.getInitialProps = async ({ query, req }) => {
+Post.getInitialProps = async ({ query, req }: PostNextPageContext) => {
   if (!req) {
     return { post: null };
   }
 
-  const response = await fetch(`http://localhost:4200/posts/${query.id}`);
-  const post = await response.json();
+  const response = await fetch(`${process.env.API_ULR}/posts/${query.id}`);
+  const post: MyPost = await response.json();
 
   return { post };
 };
