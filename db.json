@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "JS",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia pretium pellentesque. Nullam faucibus sapien vel erat pharetra tincidunt. Ut fermentum nec elit ut iaculis. Pellentesque at turpis vel mauris blandit convallis aliquet feugiat mi."
+    },
+    {
+      "id": 2,
+      "title": "NextJS",
+      "body": "Aenean eget aliquet ipsum. Fusce auctor tempor purus ut lacinia. Fusce quis sodales erat, ut molestie nibh. Mauris sed nunc consectetur, imperdiet risus quis, vulputate felis. In dignissim dui ipsum, in accumsan metus tristique a. Nulla facilisi."
+    },
+    {
+      "id": 3,
+      "title": "ReactJS",
+      "body": "Mauris egestas viverra libero sed venenatis. Phasellus eu sapien velit. Duis at ex nisl. Curabitur volutpat quam massa, non molestie sem fringilla et. Ut mollis feugiat libero, ultricies condimentum lorem ultrices et. Phasellus bibendum ligula non nulla tempus, id aliquet sem pulvinar."
+    }
+  ],
+  "about": {
+    "title": "My first NextJS app"
+  }
+}
